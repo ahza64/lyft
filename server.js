@@ -9,25 +9,6 @@ app.use(function(req, res, next) {
 
 app.use(express.static('public'));
 
-var albums = [
-  {
-    title: 'Cupid Deluxe',
-    artist: 'Blood Orange'
-  },
-  {
-    title: 'M3LL155X - EP',
-    artist: 'FKA twigs'
-  },
-  {
-    title: 'Fake History',
-    artist: 'letlive.'
-  }
-];
-
-app.get('/api/albums', function (req, res){
-  res.send(albums);
-});
-
 app.get('/', function (req, res) {
   res.sendFile('views/index.html' , { root : __dirname});
 });
