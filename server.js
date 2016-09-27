@@ -7,6 +7,8 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(express.static('public'));
+
 var albums = [
   {
     title: 'Cupid Deluxe',
@@ -24,16 +26,13 @@ var albums = [
 
 app.get('/api/albums', function (req, res){
   res.send(albums);
-  console.log(albums);
 });
 
 app.get('/', function (req, res) {
-  res.send('Hello World!');
-  // console.log(req);
-  // console.log(res);
+  res.sendFile('views/index.html' , { root : __dirname});
 });
 
 
 app.listen(process.env.PORT || 3000, function () {
-    console.log('Example app listening at http://localhost:3000/');
+    console.log('Lyft app listening at http://localhost:3000/');
   });
